@@ -4,7 +4,8 @@
 <link rel="icon" href="icons/favicon.ico">
 {{ end }}
 {{ if isset $.Site.Params "site_theme"}}
-<link href="{{ printf "css/%s.css" $.Site.Params.site_theme | absURL}}" rel="stylesheet">
+{{ $style := resources.Get (printf "scss/%s.scss" $.Site.Params.site_theme) | toCSS }}
+<link href="{{ $style.Permalink }}" rel="stylesheet">
 {{ else }}
 <link href={{"css/orange.css" | absURL }} rel="stylesheet">
 {{ end }}
