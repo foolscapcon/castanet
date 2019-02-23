@@ -1,4 +1,12 @@
-<script src={{ "js/castanet-min.js" | absURL }}></script>
+{{ $js_dep := slice ( resources.Get "js/node_modules/jquery/dist/jquery.js" ) }}
+{{ $js_dep = $js_dep | append ( resources.Get "js/node_modules/tether/dist/js/tether.js" ) }}
+{{ $js_dep = $js_dep | append ( resources.Get "js/node_modules/bootstrap/dist/js/bootstrap.js" ) }}
+{{ $js_dep = $js_dep | append ( resources.Get "js/node_modules/jssocials/dist/jssocials.js" ) }}
+{{ $js_dep = $js_dep | append ( resources.Get "js/node_modules/audiojs/audiojs/audio.js" ) }}
+{{ $js_dep = $js_dep | append ( resources.Get "js/node_modules/fontawesome/svg-with-js/js/fontawesome-all.js" ) }}
+{{ $js := $js_dep | resources.Concat "js/bundle.js" | fingerprint }}
+
+<script type="text/javascript" src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
 <script>
     $("#share").jsSocials({
         shares: [
