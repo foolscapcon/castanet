@@ -4,7 +4,7 @@
 <link rel="icon" href="icons/favicon.ico">
 {{ end }}
 
-{{ $options := (dict "targetPath" "assets/css" "outputStyle" "compressed" "enableSourceMap" true "includePaths" (slice "themes/castanet/assets/vendor/node-modules/")) }}
+{{ $options := (dict "targetPath" "assets/css" "outputStyle" "compressed" "enableSourceMap" true "includePaths" (slice "themes/castanet/assets/vendor/node_modules/")) }}
 
 {{ $sheets := slice ( resources.Get "scss/site.scss" | toCSS $options ) }}
 
