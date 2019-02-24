@@ -1,14 +1,14 @@
-{{ $js_dep := slice ( resources.Get "js/node_modules/jquery/dist/jquery.js" ) }}
-{{ $js_dep = $js_dep | append ( resources.Get "js/node_modules/tether/dist/js/tether.js" ) }}
-{{ $js_dep = $js_dep | append ( resources.Get "js/node_modules/bootstrap/dist/js/bootstrap.js" ) }}
-{{ $js_dep = $js_dep | append ( resources.Get "js/node_modules/jssocials/dist/jssocials.js" ) }}
-{{ $js_dep = $js_dep | append ( resources.Get "js/node_modules/mediaelement/build/mediaelement-and-player.js" ) }}
-{{ $js_dep = $js_dep | append ( resources.Get "js/node_modules/@fortawesome/fontawesome-free/js/all.js" ) }}
+{{ $js_dep := slice ( resources.Get "vendor/node_modules/jquery/dist/jquery.js" ) }}
+{{ $js_dep = $js_dep | append ( resources.Get "vendor/node_modules/tether/dist/js/tether.js" ) }}
+{{ $js_dep = $js_dep | append ( resources.Get "vendor/node_modules/bootstrap/dist/js/bootstrap.js" ) }}
+{{ $js_dep = $js_dep | append ( resources.Get "vendor/node_modules/jssocials/dist/jssocials.js" ) }}
+{{ $js_dep = $js_dep | append ( resources.Get "vendor/node_modules/mediaelement/build/mediaelement-and-player.js" ) }}
+{{ $js_dep = $js_dep | append ( resources.Get "vendor/node_modules/@fortawesome/fontawesome-free/js/all.js" ) }}
 {{ $js := $js_dep | resources.Concat "js/bundle.js" | fingerprint }}
 
 <script type="text/javascript" src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
 
-{{ $playercss := resources.Get "js/node_modules/mediaelement/build/mediaelementplayer.min.css" }}
+{{ $playercss := resources.Get "vendor/node_modules/mediaelement/build/mediaelementplayer.min.css" }}
 <link rel="stylesheet" href="{{ $playercss.RelPermalink }}" />
 
 <script>
