@@ -3,7 +3,7 @@
 {{ else }}
 <link rel="icon" href="icons/favicon.ico">
 {{ end }}
-{{ $sheets := slice ( resources.Get "scss/main.scss" ) }}
+{{ $sheets := slice ( resources.Get "scss/site.scss" ) }}
 
 {{ if isset $.Site.Params "site_theme"}}
 {{ $sheet = $sheet | append ( resources.Get (printf "scss/%s.scss" $.Site.Params.site_theme) ) }}
