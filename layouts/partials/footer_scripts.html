@@ -2,7 +2,7 @@
 {{ $js_dep = $js_dep | append ( resources.Get "js/node_modules/tether/dist/js/tether.js" ) }}
 {{ $js_dep = $js_dep | append ( resources.Get "js/node_modules/bootstrap/dist/js/bootstrap.js" ) }}
 {{ $js_dep = $js_dep | append ( resources.Get "js/node_modules/jssocials/dist/jssocials.js" ) }}
-{{ $js_dep = $js_dep | append ( resources.Get "js/node_modules/mediaelement/build/mediaelment-and-player.js" ) }}
+{{ $js_dep = $js_dep | append ( resources.Get "js/node_modules/mediaelement/build/mediaelement-and-player.js" ) }}
 {{ $js_dep = $js_dep | append ( resources.Get "js/node_modules/fontawesome/svg-with-js/js/fontawesome-all.js" ) }}
 {{ $js := $js_dep | resources.Concat "js/bundle.js" | fingerprint }}
 
