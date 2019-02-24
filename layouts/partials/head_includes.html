@@ -16,7 +16,7 @@
 
 <!-- Custom CSS -->
 {{ range .Site.Params.custom_scss }}
-{{ $sheet = $sheet | append ( resources.Get {{ . }} ) }}
+{{ $sheet = $sheet | append ( resources.Get . ) }}
 {{ end }}
 
 {{ "<!-- combined, minified CSS -->" | safeHTML }}
