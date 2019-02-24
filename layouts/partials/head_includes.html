@@ -4,7 +4,7 @@
 <link rel="icon" href="icons/favicon.ico">
 {{ end }}
 
-{{ $options := (dict "targetPath" "assets/css" "outputStyle" "compressed" "enableSourceMap" true "includePaths" (slice "themes/castanet/assets/vendor/node_modules/")) }}
+{{ $options := (dict  "outputStyle" "compressed" "enableSourceMap" true "includePaths" (slice "themes/castanet/assets/vendor/node_modules/")) }}
 
 {{ $sheets := slice ( resources.Get "scss/site.scss" | toCSS $options ) }}
 
@@ -25,6 +25,10 @@
 {{ "<!-- combined, minified CSS -->" | safeHTML }}
 
 {{ range $sheets }}
+{{/*
+<link href="{{ .Permalink }}" rel="stylesheet">
+*/}}
 {{ $style := . | minify | fingerprint }}    
 <link href="{{ $style.Permalink }}" rel="stylesheet" integrity="{{ $style.Data.Integrity}}" >
+
 {{ end }}
