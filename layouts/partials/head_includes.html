@@ -6,9 +6,9 @@
 {{ $sheets := slice ( resources.Get "scss/site.scss" ) }}
 
 {{ if isset $.Site.Params "site_theme"}}
-{{ $sheet = $sheet | append ( resources.Get (printf "scss/%s.scss" $.Site.Params.site_theme) ) }}
+{{ $sheets = $sheets | append ( resources.Get (printf "scss/%s.scss" $.Site.Params.site_theme) ) }}
 {{ else }}
-{{ $sheet = $sheet | append ( resources.Get (printf "scss/%s.scss" "orange") ) }}
+{{ $sheets = $sheets | append ( resources.Get (printf "scss/%s.scss" "orange") ) }}
 {{ end }}
 
 
@@ -16,7 +16,7 @@
 
 <!-- Custom CSS -->
 {{ range .Site.Params.custom_scss }}
-{{ $sheet = $sheet | append ( resources.Get . ) }}
+{{ $sheets = $sheets | append ( resources.Get . ) }}
 {{ end }}
 
 {{ "<!-- combined, minified CSS -->" | safeHTML }}
