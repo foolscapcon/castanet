@@ -1,14 +1,9 @@
 +++
+title = "GuestFirstName LastName"
+draft = true # won't be public on site until false
 Date = {{ .Date }}
-Twitter = ""
-Website = ""
 Type = "guest"
-Facebook = ""
-Linkedin = ""
-GitHub = ""
 Thumbnail = ""
-Pinterest = ""
-Instagram = ""
-YouTube = ""
 #Aka = []
+{{ partial "_social.toml" }}
 +++
