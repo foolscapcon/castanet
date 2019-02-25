@@ -45,8 +45,10 @@
     {{ end }}
     {{- with .Params.podcast_file -}}
       <div class="row">
-        <div class="col-md-12 player_row">
-          <audio src="{{ $.Site.Params.media_prefix }}{{ . }}" preload="auto"/>
+          <div class="col-md-12 player_row">
+              {{ $controls := resources.Get "vendor/node_modules/mediaelement/build/mejs-controls.svg" }}
+              <!-- {{ $controls.RelPermalink }} -->
+          <audio class="mejs__player" src="{{ $.Site.Params.media_prefix }}{{ . }}" preload="auto" data-mejsoptions='{"alwaysShowControls": "true"}'/>
         </div>
       </div>
       <div class="row">
