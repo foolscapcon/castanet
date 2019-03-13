@@ -1,5 +1,7 @@
-{{ define "main" }}
+{{/* -*- engine: go -*- */}}
 
+{{ define "main" }}
+    <div class="h-entry">
   <div class="row">
     <div class="col">
       <h1>{{ title .Title }}</h1>
@@ -260,6 +262,7 @@
           {{- end -}}
         {{- end -}}
       {{ end }}
+    </div>
 {{ end }}
 
 <!-- begin sponsor section -->
